@@ -1,6 +1,6 @@
-# Europe's Top 5 Leagues — Interactive Tableau Dashboard
+# Europe's Top 5 Leagues: Interactive Tableau Dashboard
 
-A cross-league comparison of Europe's top five football leagues — **Premier League, La Liga, Bundesliga, Serie A, Ligue 1** — for the **2023/24** season. The data is pulled directly from a REST API in Python, reshaped with pandas, and visualised in a three-page Tableau Public dashboard.
+A cross-league comparison of Europe's top five football leagues (**Premier League, La Liga, Bundesliga, Serie A, Ligue 1**) for the **2023/24** season. The data is pulled directly from a REST API in Python, reshaped with pandas, and visualised in a three-page Tableau Public dashboard.
 
 **🔗 Live dashboard:** [Tableau Public](https://public.tableau.com/views/EuropesTop5Leagues202324/Rankings)
 **🔗 Portfolio:** [wissam-ezzedine.netlify.app](https://wissam-ezzedine.netlify.app)
@@ -19,7 +19,7 @@ Data comes from the free tier of the [Football-Data.org](https://www.football-da
 - respects the free-tier rate limit (10 calls/min);
 - tags every row with its league and writes tidy CSVs.
 
-The token is read from a local `config.py` that is **git-ignored** — it never enters the repo. To run this yourself, create `config.py` with:
+The token is read from a local `config.py` that is **git-ignored**: it never enters the repo. To run this yourself, create `config.py` with:
 
 ```python
 TOKEN = "your_football_data_api_token"
@@ -27,21 +27,21 @@ TOKEN = "your_football_data_api_token"
 
 ## Data modelling
 
-Home/away information lives one row per match, so the notebook reshapes it into a **team-match table** (one row per team per match, with venue, goals for/against, goal difference, and points). In Tableau these tidy tables are joined with **relationships** on `team` + `league` — a proper model rather than one flat file.
+Home/away information lives one row per match, so the notebook reshapes it into a **team-match table** (one row per team per match, with venue, goals for/against, goal difference, and points). In Tableau these tidy tables are joined with **relationships** on `team` + `league`: a proper model rather than one flat file.
 
 ## Dashboards
 
-1. **Leagues** — home advantage, goals per game, and competitiveness by league.
-2. **Teams** — a points-vs-goal-difference efficiency scatter (over/underperformers) and an attack-vs-defense profile.
-3. **Rankings** — top teams by points and top scorers, coloured by league.
+1. **Leagues:** home advantage, goals per game, and competitiveness by league.
+2. **Teams:** a points-vs-goal-difference efficiency scatter (over/underperformers) and an attack-vs-defense profile.
+3. **Rankings:** top teams by points and top scorers, coloured by league.
 
 ## Key findings (2023/24)
 
-- **Home advantage is not universal.** Home win rate ranges from **46% in the Premier League** down to **39% in Ligue 1** — a meaningful gap for anyone modelling match outcomes.
+- **Home advantage is not universal.** Home win rate ranges from **46% in the Premier League** down to **39% in Ligue 1**, a meaningful gap for anyone modelling match outcomes.
 - **Highest-scoring leagues:** the Premier League and Bundesliga; La Liga and Serie A are the tightest defensively.
 - **Champions:** Real Madrid (95 pts), Inter (94), Manchester City (91), Bayer Leverkusen (90, unbeaten), PSG (76).
 - **Top scorer:** Harry Kane, 36 goals (Bundesliga).
-- Several teams sit **above the points-vs-goal-difference trend line**, meaning they banked more points than their goal difference justified — the first regression candidates for next season.
+- Several teams sit **above the points-vs-goal-difference trend line**, meaning they banked more points than their goal difference justified: the first regression candidates for next season.
 
 ## Tech stack
 
@@ -58,7 +58,7 @@ top5-leagues-dashboard/
 │   ├── matches.csv
 │   ├── team_matches.csv              # reshaped (one row per team per match)
 │   └── scorers.csv
-├── Europe's Top 5 Leagues — 2023_24.twbx   # Tableau workbook
+├── Europe's Top 5 Leagues - 2023_24.twbx   # Tableau workbook
 ├── requirements.txt
 ├── config.py                         # your API token (git-ignored)
 └── README.md
